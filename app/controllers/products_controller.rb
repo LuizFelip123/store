@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
   def create
-    @product = Product.new(product_parms)
+    @product = Product.new(product_params)
     if @product.save
       redirect_to @product
     else
@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
   def set_product
     @product = Product.find(params[:id])
   end
-  def product_parms
+  def product_params
     params.expect(product: [:name])
   end
 end
